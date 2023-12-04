@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="
+	http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util.xsd
+	">
+	
+	
+	<!--  Standalone list -->
+	<util:map map-class="java.util.HashMap" id = "fees">
+	<entry key = "java" value = "5000"></entry>
+	<entry key = "python" value = "1000"></entry>
+	<entry key = "hello" value = "2000"></entry>
+	
+	</util:map>
+	
+	
+	<!-- Standalone properties -->
+	<util:properties id= "dbconfig"  >
+	<prop key="driver">coms.mysql.jdbc.Driver</prop>
+	<prop key="name">coms.mysql.jdbc.Durgesh</prop>
+	<prop key="Password">coms.mysql.jdbc.Password</prop>
+	
+
+	
+	</util:properties>
+	
+	
+	
+	<!--  Standalone list -->
+	<util:list list-class = "java.util.Vector" id = "mybestfriends">			<!--  You have to use the list through the id tag -->
+	<value> Aman	</value>
+	<value>Pritesh</value>
+	<value>Karan</value>
+	
+	</util:list>
+	
+
+	
+	<bean class = "com.springcore.StandaloneCollections.Person" name = "person1" >
+	<!-- <property name= "friends">
+	<ref bean = "mybestfriends" />
+	</property> -->
+	
+	<property name = "friends" ref = "mybestfriends" />
+	<property name = "feestructure" ref= "fees" />
+	<property name="props" ref ="dbconfig"></property>
+	
+	</bean>
+	
+	
+	</beans>
